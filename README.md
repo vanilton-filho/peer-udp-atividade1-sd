@@ -18,7 +18,9 @@ Para que você possa utilizar a aplicação, faça o download do JAR ou baixe
 este repositório, e utilizando o Maven gere o executável. Depois utilize o 
 seguinte comando para executar um peer em seu host:
 
-```bash java -jar peer-udp.jar 8080 192.168.0.11 8081```
+```bash
+java -jar peer-udp.jar 8080 192.168.0.11 8081
+```
 
 O primeiro parâmetro, a porta `8080` é a porta onde o seu peer vai ficar
 escutando e pronto para a recepção de qualquer mensagem. O segundo parâmetro 
@@ -31,7 +33,9 @@ configurado na hora de iniciar a sua execução.
 Para que você tenha a execução entre dois peers, execute esse outro comando em um
 outro host:
 
-```bash java -jar peer-udp.jar 8081 192.168.0.10 8080```
+```bash
+java -jar peer-udp.jar 8081 192.168.0.10 8080
+```
 
 O endereço `192.168.0.10` é do peer do primeiro comando acima. Então, agora você
 tem um peer que está esperando por qualquer mensagem na porta `8081` e vai enviar 
