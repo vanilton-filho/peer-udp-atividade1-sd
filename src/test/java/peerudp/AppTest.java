@@ -1,4 +1,4 @@
-package chatty;
+package peerudp;
 
 import static org.junit.Assert.assertTrue;
 
