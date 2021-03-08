@@ -165,15 +165,11 @@ public class Peer {
                         System.out.println("(peer.client, fechando)");
                         scanner.close(); // Boa prática fechar
 
-                        // Suspendo a thread e dou um tempo de 15000mls para a mensagem chegar do outro
-                        // lado e deixar o servidor isAlive = true, caso contrário vamos fechar o
-                        // servidor a
-                        // partir desse cliente mesmo com o this#aliveTask
-                        Thread.sleep(15000);
+                        Thread.sleep(3000);
                         autoKillThread();
                     } else if (!data.isBlank() && !containsPeerStatusCode(data, PeerStatus.values())) {
                         send(data);
-                        Thread.sleep(15000);
+                        Thread.sleep(1000);
                     }
                 } catch (IOException | InterruptedException e) {
                     e.printStackTrace();
@@ -269,7 +265,7 @@ public class Peer {
 
             send(PeerStatus.CLOSE_PEER);
             // Vamos aguardar pelo fechamento da thread do servidor
-            Thread.sleep(15000);
+            Thread.sleep(3000);
 
         }
         // peer.client fechado, peer.server fechado, done!
