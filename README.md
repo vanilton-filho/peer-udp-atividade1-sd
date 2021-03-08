@@ -42,7 +42,7 @@ tem um peer que está esperando por qualquer mensagem na porta `8081` e vai envi
 mensagens para o outro peer na porta `8080`.
 
 Pronto, agora você pode verificar o funcionamento. Primeiro é preciso saber
-que ao enviar uma mensagem o peer vai ter um timeout (intervalo) de 15000mls
+que ao enviar uma mensagem o peer vai ter um timeout (intervalo) de 1000mls
 para receber uma mensagem de status indicando que o outro peer recebeu a mensagem - 
 o cliente do peer ficará suspenso.
 O código de retorno é o `PeerStatus.OK`. Recebendo este código a prompt do peer
@@ -51,13 +51,13 @@ apenas um `>` agora está `>>`. E é assim que a troca de mensagem vai se dando 
 os peers.
 
 Para finalizar a execução/comunicação do peer você pode enviar a qualquer tempo
-o comando `/exit`, assim teremos também um timeout (intervalo) de 15000mls para que
+o comando `/exit`, assim teremos também um timeout (intervalo) de 3000mls para que
 esse comando chegue ao outro peer - nesse mesmo tempo a finalização do cliente já foi executada -, motivando a impressão de uma mensagem no segundo peer indicando
 que o primeiro está saindo e finalizando a sua execução. Se o segundo peer receber
 o `/exit`, então ele vai retornar o status `PeerStatus.CLOSE_PEER` para indicar
 para o peer que enviou: *tudo bem, recebi sua mensagem de que está finalizando, pode 
 parar a sua execução...*. O primeiro peer então termina finalizando o seu servidor.
-Caso, acorra qualquer erro, dentro dos 15000mls e o peer não receba o `PeerStatus.CLOSE_PEER` - pode ser que o outro peer nem esteja executando em `192.168.0.11:8081` - o próprio peer envia esse status para ele mesmo para forçar o seu encerramento e garantir a finalização.
+Caso, acorra qualquer erro, dentro dos 3000mls e o peer não receba o `PeerStatus.CLOSE_PEER` - pode ser que o outro peer nem esteja executando em `192.168.0.11:8081` - o próprio peer envia esse status para ele mesmo para forçar o seu encerramento e garantir a finalização.
 
 Ao receber uma mensagem o seu modo cliente é suspenso e o seu modo
 servidor ganha prioridade e fica na escuta para qualquer outra mensagem que chega 
